@@ -71,30 +71,31 @@ Let’s comeback to creating PL/Python function *smote* and examine different pa
         import numpy as np
         y = np.asarray(labels)
         plpy.info("length of y is %s"%(len(y)))
-        #decomposing input rows which are represented as array of arrays to a numpy matrix (Rows,Columns) of table.  
+        
+        #Decomposing input rows which are represented as array of arrays to a numpy matrix (Rows,Columns) of table.  
         x_mat=np.array(features_matrix_linear).reshape(len(features_matrix_linear)/num_features, num_features)
         #print the shape of matrix.
         plpy.info("shape of mat is %s x %s" %(x_mat.shape[0], x_mat.shape[1]))
 
-        #create a dataframe xt from numpy matrix x_mat
+        #Create a dataframe xt from numpy matrix x_mat
         xt=pd.DataFrame(x_mat[:]) 
-        #create a dataframe yt from numpy matrix y
+        #Create a dataframe yt from numpy matrix y
         yt=pd.DataFrame(y[:]) 
 
         play.info("Calling SMOTE function...")
-        #create object sm from SMOTE.
+        #Create object sm from SMOTE.
         sm = SMOTE(random_state=12)
-        #call the fit_sample function of object sm to execute SMOTE on the dataset.
+        #Call the fit_sample function of object sm to execute SMOTE on the dataset.
         x_train_res, y_train_res = sm.fit_sample(xt, yt)
 
-        #name the columns of dataframe so that they match composite type column names
+        #Name the columns of dataframe so that they match composite type column names
         xt=pd.DataFrame(x_train_res[:],columns= ['avgpkts','stdpkts','avgbytes','stdbytes','avgdur','stddur','avgbps','stdbps'])
         yt=pd.DataFrame(y_train_res[:],columns=['label'])
 
-        #concatenate the xt and yt dataframes to create a complete SMOTEd dataset
+        #Concatenate the xt and yt dataframes to create a complete SMOTEd dataset
         train_set=pd.concat([xt,yt],axis=1)
 
-        #This is tricky part, convert python pandas dataframe to list of lists so that GPDB can convert list of lists to GPDB         user defined composite type 
+        #This is tricky part, convert python pandas dataframe to list of lists so that GREENPLUM can convert list of lists to GREENPLUM user defined composite type 
         ts=list(list(x) for x in zip(*(train_set[x].values.tolist() for x in train_set.columns)))
 
         #return the user defined composite type
