@@ -16,8 +16,13 @@ SMOTE on large big datasets is not computationally feasible, To be able apply SM
   * Have each person in this room weigh themselves: Measure each person’s weight in parallel
   * Count a deck of cards by dividing it up between people in this room: Count in parallel
   * MapReduce
-  * apply() family of functions in R
-  ![alt text](https://github.com/pnagula/Data-Parallel-SMOTE/picture1.png)
+  * apply() family of functions in R.
+  
+  
+  
+  
+  ![](https://github.com/pnagula/Data-Parallel-SMOTE/blob/master/Picture1.png)
+  
   #### Data Parallelism through Procedural Language Extensions (PL/X)
   
   * Allows users to write SQL functions in the R, Python, Java, Perl, pgsql or C languages
