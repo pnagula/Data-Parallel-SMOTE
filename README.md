@@ -32,7 +32,7 @@ SMOTE on large big datasets is not computationally feasible, To be able apply SM
   ![](https://github.com/pnagula/Data-Parallel-SMOTE/blob/master/Picture2.png)
 
 Let’s comeback to creating PL/Python function *smote* and examine different parts of the function.
-* First, we need to create composite user defined type *balancedset* before creating function *smote*
+* First, we need to create composite user defined type *balancedset* before creating function *smote*. This is a structure to map the result set of the function.
 
               --
               -- create a user defined type for returning result set
