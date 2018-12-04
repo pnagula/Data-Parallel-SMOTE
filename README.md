@@ -105,25 +105,21 @@ Let’s comeback to creating PL/Python function *smote* and examine different pa
 ```
     
  * Create a user defined aggregate function to encode rows of a table as Array of Arrays
-    
-    Let Row1 = {C11,C12,...,C1n}, Row2={C21,C22,...,C2n} be row arrays
-    then Array of Arrays will be 
-     
-     
-        {
-          {C11,...,C1n}, Row1
-          {C21,...,C2n}, Row2
-          …
-          {Cn1,...,Cnn}  Rown
-        }
-        
-        drop aggregate if exists array_agg_array(anyarray) cascade;
-        create ordered aggregate array_agg_array(anyarray)
-        (
-        SFUNC = array_cat,
-        STYPE = anyarray
-        );
-
+```python
+   Let Row1 = {C11,C12,...,C1n}, Row2={C21,C22,...,C2n} be row arrays then Array of Arrays will be 
+   {
+    {C11,...,C1n}, Row1
+    {C21,...,C2n}, Row2
+    …
+    {Cn1,...,Cnn}  Rown
+   }
+   drop aggregate if exists array_agg_array(anyarray) cascade;
+   create ordered aggregate array_agg_array(anyarray)
+   (
+    SFUNC = array_cat,
+    STYPE = anyarray
+   );
+```
 * Finally, Calling *smote* PL/Python function, Observe the function *smote* is called from the 'table' position of a Select statement as the *smote* function is returning a result set. The query is distributed as statement has a function in the FROM clause returning a set of rows, the statement can run on the segments
 
         drop table if exists balanced_trainset;
