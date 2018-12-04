@@ -130,3 +130,5 @@ Let’s comeback to creating PL/Python function *smote* and examine different pa
         (select array_agg(label) from packet data order by id) -- class label array
                 )
         ;
+        
+[1]	(1, 2, 3, 4) N. V. Chawla, K. W. Bowyer, L. O.Hall, W. P. Kegelmeyer, “SMOTE: synthetic minority over-sampling technique,” Journal of artificial intelligence research, 321-357, 2002.
