@@ -104,7 +104,7 @@ Let’s comeback to creating PL/Python function *smote* and examine different pa
      $$ LANGUAGE PLPYTHONU;
 ```
     
- * Create a user defined aggregate function to encode rows of a table as Array of Arrays
+ * Passing individual columns as arrays may not be code readable and there is a limit of 100 parameters that can be passed to a function, hence we create a user defined aggregate function to encode rows of a table as Array of Arrays
 ```python
    Let Row1 = {C11,C12,...,C1n}, Row2={C21,C22,...,C2n} be row arrays then Array of Arrays will be 
    {
