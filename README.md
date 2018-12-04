@@ -127,7 +127,7 @@ Let’s comeback to creating PL/Python function *smote* and examine different pa
         Select * from smote(
         (select   array_agg_array(array[avgpkts,stdpkts,avgbytes,stdbytes,avgdur,stddur,avgbps,stdbps]) from packetdata order by id), -- Features passed as Array of Arrays 
                8 , -- number of features
-        (select array_agg(label) from packet data order by id) -- class label array
+        (select array_agg(label) from packetdata order by id) -- class label array
                 )
         ;
         
