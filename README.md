@@ -17,7 +17,7 @@ SMOTE on large big datasets is not computationally feasible, To be able apply SM
   * Count a deck of cards by dividing it up between people in this room: Count in parallel
   * MapReduce
   * apply() family of functions in R
-
+  ![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")
   #### Data Parallelism through Procedural Language Extensions (PL/X)
   
   * Allows users to write SQL functions in the R, Python, Java, Perl, pgsql or C languages
