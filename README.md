@@ -120,7 +120,7 @@ Let’s comeback to creating PL/Python function *smote* and examine different pa
     STYPE = anyarray
    );
 ```
-* Finally, Calling *smote* PL/Python function, Observe the function *smote* is called from the 'table' position of a Select statement as the *smote* function is returning a result set. The query is distributed as statement has a function in the FROM clause returning a set of rows, the statement can run on the segments
+* Finally, Calling *smote* PL/Python function, Observe the function *smote* is called from the 'table' section of a Select statement as the *smote* function is returning a result set. The query is distributed as statement has a function in the FROM clause returning a set of rows, the statement can run on the segments
 
         drop table if exists balanced_trainset;
         create table balanced_trainset as 
