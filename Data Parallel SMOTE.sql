@@ -23,9 +23,7 @@ DROP FUNCTION IF EXISTS smote(float[], int, int[],int,int);
 CREATE OR REPLACE FUNCTION smote(
 features_matrix_linear float[],
 num_features int,
-labels int[],
-r0 int,
-r1 int
+labels int[]
 )
 RETURNS  setof balancedset
 AS
@@ -44,7 +42,7 @@ $$
 	yt=pd.DataFrame(y[:]) 
 	
 	play.info("Calling SMOTE function...")
-	sm = SMOTE(random_state=12,ratio={0:r0,1:r1})
+	sm = SMOTE(random_state=12)
 	x_train_res, y_train_res = sm.fit_sample(xt, yt)
 	xt=pd.DataFrame(x_train_res[:],columns=[ 'avgpkts',
 							'stdpkts',
