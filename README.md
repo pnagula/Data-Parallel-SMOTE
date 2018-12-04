@@ -28,6 +28,8 @@ SMOTE on large big datasets is not computationally feasible, To be able apply SM
   * Allows users to write SQL functions in the R, Python, Java, Perl, pgsql or C languages
   * The interpreter/VM of the language ‘X’ is installed on each node of the Greenplum Database Cluster
   * Data Parallelism:PL/X piggybacks on Greenplum MPP architecture
+  
+  ![](https://github.com/pnagula/Data-Parallel-SMOTE/blob/master/Picture2.png)
 
 Let’s comeback to creating PL/Python function *smote* and examine different parts of the function.
 * First, we need to create composite user defined type *balancedset* before creating function *smote*
